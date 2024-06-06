@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  *:focus-visible {
+    @apply outline-dotted outline-offset-2 outline-soft-green transition-all;
+  }
+
+  .max-container {
+    max-width: 90rem;
+    margin-inline: auto;
+    @apply wider:max-w-[100rem];
+  }
+
+  /* || HEADER || */
+  .header__menu-link:hover span {
+    transition: color 300ms;
+    @apply text-dark-blue;
+  }
+
+  .header__menu-link:hover span::after,
+  .header__menu-link:focus span::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: -1.85rem;
+    left: 0;
+    height: 4px;
+    transform: scale(1);
+    transition: transform 300ms;
+    animation: customBack 400ms ease-out;
+    @apply pointer-events-none bg-gradient-to-r from-lime-green to-bright-cyan;
+  }
+
+  /* || MAIN || */
+
+  /* Hero Section */
+  .section__hero h1 {
+    font-size: clamp(2.5rem, calc(2.5vw + 1.5rem), 3.5rem);
+  }
+
+  .section__hero .hero-img {
+    /* hero image responsive - Media Queries */
+    @apply max-xl:max-w-[40rem] max-lg:-top-[11.25rem] max-lg:left-40 max-lg:max-w-[28rem] max-md:-top-[3.375rem] max-md:left-1/2 max-md:-translate-x-1/2 lg:-right-[8.2rem];
+  }
+
+  /* Company Features section */
+
+  .company-feature .illustration {
+    @apply mb-[2.375rem] max-lg:flex max-lg:justify-center max-md:mb-6;
+  }
+
+  .company-feature .h3 {
+    @apply mb-[1.625rem] text-2xl font-light tracking-tight max-md:mb-4 max-md:text-xl;
+  }
+
+  .company-feature .section__description {
+    @apply text-[.9375rem] leading-[1.675] text-grayish-blue max-lg:text-balance max-xs:text-wrap wide:max-w-[26ch];
+  }
+
+  /* Latest Articles section */
+
+  .latest-article article {
+    box-shadow: 0px 0px 119px rgba(0, 0, 0, 0);
+  }
+
+  .latest-article .card-content {
+    @apply max-w-max rounded-b-md bg-white text-start;
+  }
+
+  .latest-article .h3 {
+    @apply tracking-tight;
+  }
+
+  .latest-article .card-content {
+    @apply p-6;
+  }
+
+  .latest-article .h3 {
+    @apply mb-2 text-wrap leading-tight;
+  }
+
+  .latest-article .section__description {
+    @apply text-[.8125rem] leading-[1.4] text-grayish-blue;
+  }
+
+  .latest-article:hover .h3 {
+    @apply text-soft-green transition-colors duration-300;
+  }
+
+  /* Mobile Navigation */
+
+  .mobile__nav-wrapper {
+    background-image: linear-gradient(
+      to bottom,
+      hsla(233, 26%, 24%, 0.5),
+      85%,
+      hsla(0, 0%, 100%, 0)
+    );
+  }
+
+  /* CTA */
+
+  .cta-wrap {
+    background: linear-gradient(
+      to right,
+      hsl(136, 65%, 45%),
+      hsl(192, 70%, 45%)
+    );
+  }
+
+  /* Header navigation gradient lines animation */
+  @keyframes customBack {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+@layer utilities {
+  /* Section padding x-axis - horizontal */
+  .padding-x-container {
+    @apply max-2xl:px-[10.35rem] max-wide:px-20 max-md:px-6;
+  }
+}
